@@ -13,7 +13,7 @@ if "__name__" == __main__:
 	pathname = ""
 
 	# return a list of all the JPEG files in the directory
-	file_list = []
+	file_list = [i for i in pathlib.path(pathname).iterdir() if i.suffix.lower == '.jpg']
 
 	# place all photos into the database
 	# first checking that you are not overwriting data
