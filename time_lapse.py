@@ -18,6 +18,9 @@ camera.start_preview()
 
 
 # Have the camera take pictures at the specified interval until the session is over using camera.capture(image.filename)
+for i in range(25):
+	camera.capture("IMG_{}".format(i))
+	time.sleep(2)
 
 camera.stop_preview()
 
