@@ -17,8 +17,7 @@ camera = PiCamera()
 camera.start_preview()
 
 
-# Have the camera take pictures at the specified interval until the session is over
-
+# Have the camera take pictures at the specified interval until the session is over using camera.capture 
 
 camera.stop_preview()
 
