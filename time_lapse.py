@@ -24,3 +24,4 @@ for i in range(SESSION_LENGTH//INTERVAL):
 
 camera.stop_preview()
 
+#random test
