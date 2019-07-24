@@ -1,4 +1,4 @@
-import os
+import os 
 import datetime
 from datetime import tzinfo
 import math
@@ -8,19 +8,22 @@ import time
  
 
 # Enter the path where the raspberry pi will store its file
-RASPI_PATH = ""
+RASPI_PATH = "images_{}".format(time.asctime().replace(" ","_"))
 
-INTERVAL = None# the time interval (in seconds) between pictures
-SESSION_LENGTH = None# the duration of the script
+os.mkdir(RASPI_PATH)
+
+INTERVAL = 2# the time interval (in seconds) between pictures
+SESSION_LENGTH = 600# the duration of the script
 
 camera = PiCamera()
 camera.start_preview()
 
 
 # Have the camera take pictures at the specified interval until the session is over using camera.capture(image.filename)
-for i in range(25):
-	camera.capture("IMG_{}".format(i)) 
-	time.sleep(2)
+for i in range(SESSION_LENGTH//INTERVAL):
+	camera.capture(RASPI_PATH+"/IMG_{}.jpg".format(i))
+	time.sleep(INTERVAL)
 
 camera.stop_preview()
 
+#random test
